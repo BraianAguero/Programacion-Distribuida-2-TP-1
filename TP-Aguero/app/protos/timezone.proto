@@ -1,0 +1,17 @@
+syntax = "proto3";
+package example;
+
+// The greeting service definition.
+service TimeZone {
+  // Sends a timezone
+  rpc DateTime (TZRequest) returns (TZReply) {}
+}
+
+
+message TZRequest {
+  string localizacion = 1;
+}
+
+message TZReply {
+  string message = 2;
+}
