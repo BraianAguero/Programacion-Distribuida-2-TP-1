@@ -28,10 +28,10 @@ class TimeZone(timezone_pb2_grpc.TimeZoneServicer):
     
     def DateTime(self, request, context):
         current_time=dt.datetime.now(pytz.timezone(request.localizacion))
-        ct=dt.datetime.now().timestamp()
+        #ct=dt.datetime.now().timestamp()
         current_time_tf=current_time.strftime("%y/%m/%d, %H:%M:%S")
-        print("Tiempo:", current_time_tf)
-        return timezone_pb2.TZReply(message=current_time_tf)
+        #print("Tiempo:", current_time_tf)
+        return timezone_pb2.TZReply(time=current_time_tf,time_zone=request.localizacion)
 
 
 
