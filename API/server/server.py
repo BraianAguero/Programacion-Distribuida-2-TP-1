@@ -28,14 +28,15 @@ class TimeZone(timezone_pb2_grpc.TimeZoneServicer):
     
     def DateTime(self, request, context):
         current_time=dt.datetime.now(pytz.timezone(request.localizacion))
-        #ct=dt.datetime.now()
+        ct=dt.datetime.now().timestamp()
         current_time_tf=current_time.strftime("%y/%m/%d, %H:%M:%S")
+        print("Tiempo:", current_time_tf)
         return timezone_pb2.TZReply(message=current_time_tf)
 
 
 
 def serve():
-    
+    print('Starting server. Listening on port 50051')
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     timezone_pb2_grpc.add_TimeZoneServicer_to_server(TimeZone(), server)
     server.add_insecure_port('[::]:50051')
