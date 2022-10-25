@@ -15,5 +15,5 @@ message TZRequest {
 message TZReply {
   string time = 2;
   string time_zone=3;
-  string epoch_time=4;
+  double  epoch_time=4;
 }

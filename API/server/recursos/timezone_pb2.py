@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0etimezone.proto\x12\x07\x65xample\"!\n\tTZRequest\x12\x14\n\x0clocalizacion\x18\x01 \x01(\t\">\n\x07TZReply\x12\x0c\n\x04time\x18\x02 \x01(\t\x12\x11\n\ttime_zone\x18\x03 \x01(\t\x12\x12\n\nepoch_time\x18\x04 \x01(\t2>\n\x08TimeZone\x12\x32\n\x08\x44\x61teTime\x12\x12.example.TZRequest\x1a\x10.example.TZReply\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0etimezone.proto\x12\x07\x65xample\"!\n\tTZRequest\x12\x14\n\x0clocalizacion\x18\x01 \x01(\t\">\n\x07TZReply\x12\x0c\n\x04time\x18\x02 \x01(\t\x12\x11\n\ttime_zone\x18\x03 \x01(\t\x12\x12\n\nepoch_time\x18\x04 \x01(\x01\x32>\n\x08TimeZone\x12\x32\n\x08\x44\x61teTime\x12\x12.example.TZRequest\x1a\x10.example.TZReply\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'timezone_pb2', globals())

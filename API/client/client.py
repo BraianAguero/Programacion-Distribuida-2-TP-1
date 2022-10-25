@@ -20,15 +20,15 @@ from datetime import datetime
 import grpc
 import timezone_pb2
 import timezone_pb2_grpc
+#import pytz
 
 def run(ubicacion):
     print('Starting client. Listening on port 50051')
-    #print ('ubicacion: ',ubicacion)
     with grpc.insecure_channel('server:50051') as channel:
         stub = timezone_pb2_grpc.TimeZoneStub(channel)
         response = stub.DateTime(timezone_pb2.TZRequest(localizacion=ubicacion))
         #response = stub.DateTime(timezone_pb2.TZRequest(localizacion='America/Argentina/Buenos_Aires'))
-        #print ("Response.time: ",response.time)
+        #print(pytz.all_timezones)
     return response
 
 
