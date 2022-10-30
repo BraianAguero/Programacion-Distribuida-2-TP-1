@@ -10,11 +10,11 @@ app=FastAPI()
 def raiz():
     return RedirectResponse(url="/docs/")
 
-@app.get("/validar/{Localizacion}")
-def request_timzone(request:str):
-    geo=cliente.run(request)
+@app.get("/Localizacion/{Continente}/{zone}")
+def request_timzone(Continente:str,zone:str):
+    geo=cliente.run(Continente,zone)
     return{
-        "Hora: ":geo.time,
-        "Zona: ":geo.time_zone,
-        "Unix Epoch time: ":geo.epoch_time,
+        "Hora":geo.time,
+        "Zona":geo.time_zone,
+        "Unix_Epoch_time":geo.epoch_time,
         }

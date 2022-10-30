@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "d640514e-143a-44d9-8e69-fe8d17c99d6f",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23278398"
+	},
+	"item": [
+		{
+			"name": "TimeZone_America_Buenos_Aires",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    //make an assertion\r",
+							"    //if you assertion thrown an error, this test will fail\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const responseJson = pm.response.json();\r",
+							"//parse the response JSON and test three properties\r",
+							"pm.test(\"Test - Hora tipo String\", () => {\r",
+							"    //La hora es tipo String\r",
+							"    pm.expect(responseJson.Hora).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test - Dato Zona tipo String\", () => {\r",
+							"    pm.expect(responseJson.Zona).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test - Dato Unix Epoch Time tipo Double\", () => {\r",
+							"    pm.expect(responseJson.Unix_Epoch_time).to.be.a('Number');\r",
+							"})\r",
+							"pm.test(\"Test - Zona contiene /\", () => {\r",
+							"    pm.expect(pm.response.text()).to.include('/');\r",
+							"})\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1/Localizacion/America/Buenos_Aires",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"Localizacion",
+						"America",
+						"Buenos_Aires"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TimeZone_Etc_GMT-6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    //make an assertion\r",
+							"    //if you assertion thrown an error, this test will fail\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const responseJson = pm.response.json();\r",
+							"//parse the response JSON and test three properties\r",
+							"pm.test(\"Test - Hora tipo String\", () => {\r",
+							"    //La hora es tipo String\r",
+							"    pm.expect(responseJson.Hora).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test - Dato Zona tipo String\", () => {\r",
+							"    pm.expect(responseJson.Zona).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test - Dato Unix Epoch Time tipo Double\", () => {\r",
+							"    pm.expect(responseJson.Unix_Epoch_time).to.be.a('Number');\r",
+							"})\r",
+							"pm.test(\"Test - Zona contiene Etc/GMT\", () => {\r",
+							"    pm.expect(pm.response.text()).to.include('Etc/GMT');\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/Localizacion/Etc/GMT-6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"Localizacion",
+						"Etc",
+						"GMT-6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Raiz",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    //make an assertion\r",
+							"    //if you assertion thrown an error, this test will fail\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

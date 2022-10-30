@@ -26,7 +26,7 @@ import pytz
 class TimeZone(timezone_pb2_grpc.TimeZoneServicer):
    
     
-    def DateTime(self, request, context):
+    def DateTime(self, request,context):
         current_time=dt.datetime.now(pytz.timezone(request.localizacion))
         unixEpochTime=current_time.timestamp()
         current_time_tf=current_time.strftime("%y/%m/%d, %H:%M:%S")
