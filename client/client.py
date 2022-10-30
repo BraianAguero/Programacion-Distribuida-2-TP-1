@@ -27,8 +27,6 @@ def run(loc,ubicacion):
     with grpc.insecure_channel('server:50051') as channel:
         stub = timezone_pb2_grpc.TimeZoneStub(channel)
         response = stub.DateTime(timezone_pb2.TZRequest(localizacion=loc+'/'+ubicacion))
-        #response = stub.DateTime(timezone_pb2.TZRequest(localizacion='America/Argentina/Buenos_Aires'))
-        #print(pytz.all_timezones)
     return response
 
 
