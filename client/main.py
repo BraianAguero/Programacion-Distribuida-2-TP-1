@@ -2,8 +2,10 @@ from fastapi import FastAPI,Request
 from starlette.responses import RedirectResponse
 import uvicorn
 import client as cliente
+import logging
 
-
+logging.basicConfig(format='%(asctime)s %(message)s')
+logging.warning('is when this event was logged.')
 app=FastAPI()
 
 @app.get("/")
