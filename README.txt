@@ -51,3 +51,37 @@ REST no proporciona funciones para generación de código integrado por lo que s
 gRPC tiene funciones para generar código integrado compatible con varios lenguajes de programación.
 gRPC ofrece una gran cantidad de ventajas para sistemas internos/privados, sistemas multilenguaje y transmisión en tiempo real.
 API REST tiene un soporte universal con navegadores y es más conocido por lo que es conveniente usarlo para desarrollo de servicios web y la integración de aplicaciones y microservicio
+
+--------------------Devolucion---------------------------
+
+HTML es un lenguaje de marcado
+
+Así es, me confundí de palabra. Quise decir HTTP.
+
+- ¿Por qué el modelo de comunicación no deja que reciba grandes cantidades de comunicaciones?
+
+Es debido a que REST está principalmente basado en HTTP1 la cual tiene un modelo de comunicación request-response, limitando la gestión de las solicitudes llegan al servidor, está obligado a manejar cada una de ellas, una a la vez. Por el contrario, grpc sigue un modelo de comunicación que se basa en HTTP/2 . Por lo tanto, le permite la transmisión de mensajes y atender las múltiples solicitudes simultáneamente. Además de que grpc también admite comunicación unaria igual que REST.
+
+Si bien REST puede adaptarse para que funcione con HTTP2, pero procesa los mensajes de a uno.
+
+- client/response, estimo que es client/server que sigue el patrón request/reply.
+
+Así es, cliente/servidor. Lo que quise decir es que la grpc maneja una arquitectura Clientes/servidor en el cual el cliente solicita un mensaje que es serializado por el RPC y respondido por el servidor.
+
+- REST sobre HTTP no es client-server?
+
+REST sobre HTTP es cliente-servidor. 
+
+Un cliente (una pc o host) envía un  request  por un servicio o dato a un servidor a través del protocolo  HTTP.
+
+El servidor acepta la request, lo procesa y envía una respuesta a traves del protocolo HTTP
+
+- Los browsers también hablan HTTP 2, no entiendo para qué sirve el proxy, qué a qué convertirían y si el proxy es un proxy o un proxy-reverso.
+
+Para que grpc sea compatible con navegadores es necesario una capa llamada gRPC-Web que actúa como una capa de traducción entre gRPC.  Todo esto es necesario porque el codigo javascript que se ejecuta en el navegador no proporciona un control total sobre HTTP2 .
+
+- XML y JSON? Dónde está esa restricción? YML no se puede?
+
+JSON y XML son los formatos más populares y usados debido a su flexibilidad y capacidad para enviar datos dinámicos sin seguir necesariamente una estructura estricta.
+
+YML también puede ser utilizado. Cómo mencione anteriormente, REST no está definido en una estructura estricta, pero la desventaja de usar YML es que no siempre se incluye en las bibliotecas estándar como suele ser JSON. Por lo que se podría depender de una biblioteca adicional. Además, si el cliente es un navegador, el análisis será más lento, ya que se tendrá que usar una librería externa no nativa.
